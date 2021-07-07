@@ -61,33 +61,48 @@ def printLinkedList(head):
 
 
 class Solution:
+    ########## RECURSIVE SOLUTION #####################
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        # Base Cases
         if not l1:
             return l2
         if not l2:
             return l1
-        # no point in assigning a value for the dummy head
-        dummy_head = ListNode(None)
-        # Repeat this process
-        curr_node = dummy_head
-        while l1 or l2:
-            if l1 is None:
-                curr_node.next = l2
-                return dummy_head.next
-            if l2 is None:
-                curr_node.next = l1
-                return dummy_head.next
-            if l1.val <= l2.val:
-                # In the case of a tie, l1 gets priority
-                curr_node.next = l1
-                # Advance l1
-                l1 = l1.next
-            else:
-                # In the case that l2 is less than l1
-                curr_node.next = l2
-                l2 = l2.next
-            curr_node = curr_node.next
-        return "I didn't think we'd get here!"
+        if l1.val <= l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
+
+########## ITERATIVE SOLUTION #####################
+    # def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    #     if not l1:
+    #         return l2
+    #     if not l2:
+    #         return l1
+    #     # no point in assigning a value for the dummy head
+    #     dummy_head = ListNode(None)
+    #     # Repeat this process
+    #     curr_node = dummy_head
+    #     while l1 or l2:
+    #         if l1 is None:
+    #             curr_node.next = l2
+    #             return dummy_head.next
+    #         if l2 is None:
+    #             curr_node.next = l1
+    #             return dummy_head.next
+    #         if l1.val <= l2.val:
+    #             # In the case of a tie, l1 gets priority
+    #             curr_node.next = l1
+    #             # Advance l1
+    #             l1 = l1.next
+    #         else:
+    #             # In the case that l2 is less than l1
+    #             curr_node.next = l2
+    #             l2 = l2.next
+    #         curr_node = curr_node.next
+    #     return "I didn't think we'd get here!"
 
     # def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
     #     ############################################################
