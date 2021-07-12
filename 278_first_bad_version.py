@@ -44,6 +44,8 @@ You could pick the mid point and check the validity of midpoint and of its neigh
 """
 
 if __name__ == '__main__':
-    test_nums = "88"
-    solution_instance = Solution()
-    print(solution_instance.isStrobogrammatic(test_nums))
+    # test_nums = "88"
+    # solution_instance = Solution()
+    # print(solution_instance.isStrobogrammatic(test_nums))
+    string = "1"
+    print(string[0:])
