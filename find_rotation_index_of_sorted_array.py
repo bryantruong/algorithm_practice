@@ -20,7 +20,6 @@ class Solution:
             # Otherwise, the array wasn't even rotated
             return 0
 
-
 if __name__ == '__main__':
     test_nums = [5, 1, 2, 3, 4]
     # Should return 3

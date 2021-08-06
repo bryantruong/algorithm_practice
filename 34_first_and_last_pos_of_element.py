@@ -77,7 +77,7 @@ since stop == target, return target
 
 if __name__ == '__main__':
     # Use a simple tree, with s and t matching, to test checkEquality
-    test_nums = [1,2,3,3,3,3,4,5,9]
+    test_nums = [1, 2, 3, 3, 3, 3, 4, 5, 9]
     test_target = 3
     solution_instance = Solution()
     print(solution_instance.searchRange(test_nums, test_target))
