@@ -54,13 +54,10 @@ class Solution:
         return check_flip_equivs(root1, root2)
 # # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # root_1 = [1, 2, 3, 4, 5, 6, None, None, None, 7, 8]
-    # root_2 = [1, 3, 2, None, 6, 4, 5, None, None, None, None, 8, 7]
-    # solution_instance = Solution()
-    # solution_to_return = solution_instance.flipEquiv(root_1, root_2)
-    # print(solution_to_return)
-    test_var = sorted([None, 1, 3, 5, 2, None], key = lambda x: float('-inf') if x is None else x)
-    print(test_var)
+    root_1 = [1, 2, 3, 4, 5, 6, None, None, None, 7, 8]
+    root_2 = [1, 3, 2, None, 6, 4, 5, None, None, None, None, 8, 7]
+    solution_instance = Solution()
+    solution_to_return = solution_instance.flipEquiv(root_1, root_2)
+    print(solution_to_return)
+
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
-# [1,2,3,4,5,6,null,null,null,7,8]
-# [1,3,2,null,6,4,5,null,null,null,null,8,7]
