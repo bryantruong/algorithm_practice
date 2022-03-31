@@ -60,7 +60,7 @@ class Solution:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    test_nums = [2, 2, 6]
+    test_nums = [1, 5, 5, 11]
     solution_instance = Solution()
     print(solution_instance.canPartition(test_nums))
 
