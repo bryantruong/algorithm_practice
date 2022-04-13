@@ -76,10 +76,10 @@ class Solution:
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # Use a simple tree, with s and t matching, to test checkEquality
-    s = createBTree([3,4,5,1,2], 0)
+    s = createBTree([2,None,3,None,4,None,5,None,6], 0)
     t = createBTree([4,1,2], 0)
     solution_instance = Solution()
-    solution_to_return = solution_instance.isSubtree(s, t)
+    solution_to_return = solution_instance.isSubtree(s)
     print(solution_to_return)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
