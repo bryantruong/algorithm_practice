@@ -29,53 +29,25 @@ def createBTree(data, index):
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         """
-        DAMN this was bad. If you are studying LC with me, don't use this solution lol
-        I somehow didn't think of doing just one search, and comparing the current node to the values
-        of both p and q at the same time!
-        :param root:
-        :param p:
-        :param q:
-        :return:
+        The secret is to realize that at each node, we have three options:
+        1. p and q are both less than current node, look in left subtree.
+        2. p and q are both greater than current node, so look in the right subtree.
+        3. p or q equals the current node, or only one of the two is greater. This means we found it!
         """
-        visited_to_p = set()
-        visited_to_q = deque()
-
-        def find_node(curr_node, is_for_p):
-            # We don't need to worry about if curr_node is null, since we are guaranteed to find it in the tree.
-            if is_for_p:
-                visited_to_p.add(curr_node)
-                target = p
-            else:
-                visited_to_q.append(curr_node)
-                target = q
-            if curr_node.val == target.val:
-                return
-            else:
-                # Do a Binary search down the tree
-                if curr_node.val < target.val:
-                    find_node(curr_node.right, is_for_p)
-                else:
-                    find_node(curr_node.left, is_for_p)
-            return
-
-        find_node(root, True)
-        find_node(root, False)
-        lca = None
-        visited_to_q.pop()
-        while visited_to_q:
-            path_node = visited_to_q.pop()
-            if path_node in visited_to_p:
-                lca = path_node
-                return lca
-        return lca
+        if p.val < root.val and q.val < root.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        if p.val > root.val and q.val > root.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        else:
+            return root
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # Use a simple tree, with s and t matching, to test checkEquality
-    tree = createBTree([2, 1], 0)
+    tree = createBTree([6, 2, 8, 0, 4, 7, 9, None, None, 3, 5], 0)
     solution_instance = Solution()
-    solution_to_return = solution_instance.lowestCommonAncestor(tree, TreeNode(val=1), TreeNode(val=2))
+    solution_to_return = solution_instance.lowestCommonAncestor(tree, TreeNode(val=2), TreeNode(val=4))
     print(solution_to_return.val)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
