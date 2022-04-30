@@ -42,8 +42,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    # Use a simple tree, with s and t matching, to test checkEquality
-    test_case = [["A", "B", "C", "E"], ["S", "F", "E", "S"], ["A", "D", "E", "E"]]
-    test_word = word = "ABCESEEEFS"
+    test_case = [["a","a","a"],["A","A","A"],["a","a","a"]]
+    test_word = word = "aAaaaAaaA"
     solution_instance = Solution()
     print(solution_instance.exist(test_case, test_word))
